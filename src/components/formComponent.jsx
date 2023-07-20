@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
-const FormComponent = () => {
+const FormComponent = (props) => {
+
+const history=useHistory()
+
+
     const [user, setUser] = useState({
         name: "", age: 0
     })
@@ -28,6 +33,9 @@ const FormComponent = () => {
     const submitData = (e) => {
         console.log(e);
         e.preventDefault();
+
+        // props.history.push("/submit")    // using props
+        history.push("/submit")       // using useHistory hook
     }
     return (
         <>

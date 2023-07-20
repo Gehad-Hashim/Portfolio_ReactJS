@@ -1,3 +1,4 @@
+import { Button } from 'react-bootstrap';
 import users from '../users/users';
 import { useState } from "react";
 
@@ -12,10 +13,10 @@ const About = () => {
         setName('heba');
         console.log(name);
 
-setMyUsers([...myusers,{
+setMyUsers(...myusers,{
     id: 3,
     name: 'noha'
-}])
+})
        
 
 
@@ -24,9 +25,9 @@ setMyUsers([...myusers,{
 
 
     return (
-        <div>
+        <>
             <p>we r n about page</p>
-            <button onClick={showMsg} className="myBtn" >contact me</button>
+            <Button onClick={()=>showMsg} >contact me</Button>
             <div style={{ color: 'blue' }}>{name}</div>
 
             <p>{myusers.map(
@@ -38,7 +39,7 @@ setMyUsers([...myusers,{
             )
     }
 )}</p>
-        </div>
+        </>
     )
 }
 

@@ -24,6 +24,18 @@ const Header = () => {
             <li className=''>
               <Link to='/contact' className='nav-item'>contact me</Link>
             </li>
+            <li className=''>
+              <Link to='/add' className='nav-item'>add user</Link>
+            </li>
+            <li className=''>
+              <Link to='/about' className='nav-item'>about</Link>
+            </li>
+            <li className=''>
+              <Link to='/skills' className='nav-item'>my skills</Link>
+            </li>
+            <li className=''>
+              <Link to='/blogs' className='nav-item'>Blogs</Link>
+            </li>
           </ul>
         </Container>
       </Navbar>

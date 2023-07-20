@@ -1,9 +1,11 @@
 import Count from "./counter/count";
 import ActionBtns from "./counter/actionBtns";
 import { useState } from "react"
+import { useHistory ,useParams} from "react-router-dom"
+import { useLocation } from "react-router-dom/cjs/react-router-dom";
 
-const CountWrapper=()=>{
-   
+const CountWrapper=(props)=>{
+ 
 
     return(
         <div>

@@ -8,24 +8,31 @@ import MyCv from './components/myCV';
 import FormComponent from './components/formComponent';
 import CountWrapper from './components/countWrapper';
 import { Button } from 'react-bootstrap';
-import {BrowserRouter,Routes,Route,Link} from 'react-router-dom' ;
-
+import {BrowserRouter,Switch,Route,Link} from 'react-router-dom' ;
+import Skills from "./pages/skills"
+import skill from "./pages/oneSkill"
+import Blogs from "./pages/Blogs"
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
       <Header/>
-            <Routes>
-                <Route path='/' element={<Main/>} />
-                <Route  path='/counter' element={<CountWrapper/>}/>
-                <Route  path='*' element={<NotFound/>}/>
-            </Routes>
+            <Switch>
+                <Route path='/' exact component={Main} />
+                <Route  path={"/counter"} exact component={CountWrapper}/>
+                <Route  path={"/add"} exact component={FormComponent}/>
+                <Route  path={"/submit"} exact component={MyCv}/>
+                <Route  path={"/about"} exact component={About}/>
+                <Route  path={"/skills"} exact component={Skills}/>
+                <Route  path={"/skill/:id"} exact component={skill}/>
+                <Route  path={"/blogs"} exact component={Blogs}/>
+                <Route  path='*' exact component={NotFound}/>
+            </Switch>
        </BrowserRouter>
 
 
       {/* <MyCv /> */}
-      {/* <FormComponent /> */}
       <Footer/>
 
 
