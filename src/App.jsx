@@ -12,10 +12,16 @@ import {BrowserRouter,Switch,Route,Link} from 'react-router-dom' ;
 import Skills from "./pages/skills"
 import skill from "./pages/oneSkill"
 import Blogs from "./pages/Blogs"
+import SwiperComp from './components/swiper/swiper'
+import ClassComponent from './components/class/ClassComponent'
+import { useSelector } from 'react-redux';
 
 function App() {
+  const language = useSelector((state) => state.langRed.lang);
+  const theme = useSelector((state) => state.themeRed.theme);
+
   return (
-    <div className="App">
+    <div className={theme =="dark"?'bg-dark text-light':'bg-light text-dark'}  dir={language =="en"?'ltr':'rtl'}>
       <BrowserRouter>
       <Header/>
             <Switch>
@@ -27,12 +33,15 @@ function App() {
                 <Route  path={"/skills"} exact component={Skills}/>
                 <Route  path={"/skill/:id"} exact component={skill}/>
                 <Route  path={"/blogs"} exact component={Blogs}/>
+                <Route  path={"/class"} exact component={ClassComponent}/>
+                <Route  path={"/memory"} exact component={SwiperComp}/>
                 <Route  path='*' exact component={NotFound}/>
             </Switch>
        </BrowserRouter>
 
-
+{/* <SwiperComp /> */}
       {/* <MyCv /> */}
+      
       <Footer/>
 
 
