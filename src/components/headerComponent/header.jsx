@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <>
-      <Navbar bg={theme} data-bs-theme="dark">
+      <Navbar bg={theme=="dark"?"light":"dark"} data-bs-theme="dark">
         <Container className="justify-content-start">
           <Navbar.Brand >
             <Link to='/' id="portofolio">portofolio</Link>

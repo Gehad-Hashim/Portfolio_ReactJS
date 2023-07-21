@@ -14,12 +14,17 @@ import skill from "./pages/oneSkill"
 import Blogs from "./pages/Blogs"
 import SwiperComp from './components/swiper/swiper'
 import ClassComponent from './components/class/ClassComponent'
-import { useSelector } from 'react-redux';
+import { useSelector ,useDispatch} from 'react-redux';
+import { getList } from "./Store/Actions/listAction";
+import { useState,useEffect } from "react";
 
 function App() {
   const language = useSelector((state) => state.langRed.lang);
   const theme = useSelector((state) => state.themeRed.theme);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+          dispatch(getList())
+  }, [])
   return (
     <div className={theme =="dark"?'bg-dark text-light':'bg-light text-dark'}  dir={language =="en"?'ltr':'rtl'}>
       <BrowserRouter>

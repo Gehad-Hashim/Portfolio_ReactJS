@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MyCard from "../components/card/MyCard";
+import { useDispatch, useSelector } from "react-redux";
+import { getList } from "../Store/Actions/listAction";
 
 const Skills = () => {
 
-    const [skills, setSkills] = useState([])
+    // const [skills, setSkills] = useState([])
 
-    useEffect(() => {
-        axios.get("https://retoolapi.dev/O7ApQx/data")
-            .then((res) => { setSkills(res.data) })
-            .catch((err) => { console.log("looooooooo ", err) })
-    }, [])
+    // useEffect(() => {
+    //     axios.get("https://retoolapi.dev/O7ApQx/data")
+    //         .then((res) => { setSkills(res.data) })
+    //         .catch((err) => { console.log("looooooooo ", err) })
+    // }, [])
+
+    const skills = useSelector((state) => state.listRed.list)
+   
 
 
     return (

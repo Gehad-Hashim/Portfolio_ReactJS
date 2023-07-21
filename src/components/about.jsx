@@ -1,12 +1,14 @@
 import { Button } from 'react-bootstrap';
 import users from '../users/users';
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { useSelector ,useDispatch} from 'react-redux';
+import { getList } from "../Store/Actions/listAction";
 
 const About = () => {
     const [name, setName] = useState('Eng-gehad');
     const [myusers, setMyUsers] = useState(users);
 
-
+const skills_list=useSelector((state)=>state.listRed.list)
 
     const showMsg = () => {
         // alert('hello from react');
@@ -35,6 +37,15 @@ setMyUsers(...myusers,{
         return(
             <div key={user.id}>
                <p style={{color:'red',fontStyle:'italic'}}>{user.name}</p>
+            </div>
+            )
+    }
+)}</p>
+            <p>{skills_list.map(
+    (s)=>{
+        return(
+            <div key={s.id}>
+               <p style={{color:'red',fontStyle:'italic'}}>{s.name}</p>
             </div>
             )
     }
